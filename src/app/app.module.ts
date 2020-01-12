@@ -13,7 +13,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
@@ -54,9 +54,10 @@ import { RatingComponent } from './shared/rating/rating.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantsService, ShoppingCartService, OrderService],
+  providers: [RestaurantsService, ShoppingCartService, OrderService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
