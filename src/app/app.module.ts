@@ -7,7 +7,6 @@ import {ROUTES} from './app.routes';
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { OrderComponent } from './order/order.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
@@ -15,8 +14,6 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
-import { InputComponent } from './shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
@@ -25,16 +22,14 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
 import { OrderService } from './order/order.service';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { RatingComponent } from './shared/rating/rating.component';
-
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    AboutComponent,
+    HomeComponent,   
     OrderComponent,
     OrderItemsComponent,
     ReviewsComponent,
@@ -43,18 +38,14 @@ import { RatingComponent } from './shared/rating/rating.component';
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantDetailComponent,
-    InputComponent,
-    RadioComponent,
     ShoppingCartComponent,
     DeliveryCostsComponent,
-    OrderSummaryComponent,
-    RatingComponent
+    OrderSummaryComponent,   
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [RestaurantsService, ShoppingCartService, OrderService, FormBuilder],
