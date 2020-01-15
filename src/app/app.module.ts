@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import {ROUTES} from './app.routes';
 
 import { AppComponent } from './app.component'
@@ -15,9 +15,6 @@ import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
-import { RestaurantsService } from './restaurants/restaurants.service';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
-import { OrderService } from './order/order.service';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
 
@@ -39,10 +36,10 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     HttpModule,
-    SharedModule,
-    RouterModule.forRoot(ROUTES)
+    SharedModule.forRoot(),   
+    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
-  providers: [RestaurantsService, ShoppingCartService, OrderService, FormBuilder],
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
