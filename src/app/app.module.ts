@@ -11,7 +11,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
@@ -23,20 +23,21 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,   
+    HomeComponent,
     ReviewsComponent,
     MenuComponent,
     MenuItemComponent,
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantDetailComponent,
-    ShoppingCartComponent,   
-    OrderSummaryComponent,   
+    ShoppingCartComponent,
+    OrderSummaryComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
-    SharedModule.forRoot(),   
+    SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
