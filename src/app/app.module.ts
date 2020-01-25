@@ -11,12 +11,13 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { SharedModule } from './shared/shared.module';
     RestaurantComponent,
     RestaurantDetailComponent,
     ShoppingCartComponent,   
-    OrderSummaryComponent,   
+    OrderSummaryComponent, NotFoundComponent,   
   ],
   imports: [
     BrowserModule,
@@ -39,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule.forRoot(),   
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
+  //{provide: LocationStrategy, useClass: HashLocationStrategy}, 
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
