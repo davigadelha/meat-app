@@ -19,7 +19,7 @@ import { RestaurantComponent } from './restaurants/restaurant/restaurant.compone
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+// import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     RestaurantDetailComponent,
     ShoppingCartComponent,
     OrderSummaryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
