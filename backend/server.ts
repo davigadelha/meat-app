@@ -15,6 +15,11 @@ server.use(middlewares)
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser)
 
+//
+server.post('/login', (req, resp) => {
+  resp.json({message: 'ok'});
+})
+
 // Use default router
 server.use(router)
 
