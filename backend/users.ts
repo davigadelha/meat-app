@@ -1,3 +1,4 @@
+
 export class User {
 
     constructor(public email: string,
@@ -11,7 +12,7 @@ export class User {
     }
 }
 
-export const users = {
+export const users: {[key: string]: User} = {
     "juliana@gmail.com": new User('juliana@gmail.com', 'Juliana', 'juliana23'),
     "amanda.com": new User('juliana@gmail.com', 'Amanda', 'amanda21')
 }
