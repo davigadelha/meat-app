@@ -1,3 +1,4 @@
+import { LoginService } from './../security/login/login.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { InputComponent } from "./input/input.component";
 import { RadioComponent } from "./radio/radio.component";
@@ -19,7 +20,8 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders{
         return {
             ngModule: SharedModule,
-            providers: [ShoppingCartService, RestaurantsService, OrderService]
+            providers: [ShoppingCartService, RestaurantsService, OrderService,
+                        LoginService]
         }
     }
 }
