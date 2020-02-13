@@ -10,7 +10,7 @@ export class LoginService {
 
     user: User;
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
     isLoggedIn(): boolean {
         return this.user !== undefined;

@@ -1,3 +1,4 @@
+import { NotificationService } from './../../shared/messages/notification.service';
 import { LoginService } from './login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder,
+              private loginService: LoginService,
+              private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -24,7 +27,11 @@ export class LoginComponent implements OnInit {
   login(){
     this.loginService.login(this.loginForm.value.email,
                             this.loginForm.value.password)
-                    .subscribe(user => console.log(user));
+                    .subscribe(user => console.log(`Bem vindo(a), ${user.name}`),
+                               // this.notificationService.notify(`Bem vindo, ${user.name}`),
+                               response => // HttpErrorResponse
+                               console.log(`Ocorreu um erro ao logar: ${response.error.message}`));
+                               // this.notificationService.notify(response.error.message));
   }
 
 }
