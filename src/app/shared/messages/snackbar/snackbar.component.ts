@@ -1,3 +1,4 @@
+import { NotificationService } from './../notification.service';
 import { state, style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
@@ -27,9 +28,13 @@ export class SnackbarComponent implements OnInit {
 
   snackVisibility: string = 'hidden';
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
+    this.notificationService.notifier.subscribe(message => {
+      this.message = message;
+      this.snackVisibility = 'visible';
+    })
   }
 
  
