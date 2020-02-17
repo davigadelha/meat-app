@@ -1,3 +1,4 @@
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from './messages/notification.service';
 import { LoginService } from './../security/login/login.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
@@ -10,11 +11,12 @@ import { ShoppingCartService } from "app/restaurant-detail/shopping-cart/shoppin
 import { RestaurantsService } from "app/restaurants/restaurants.service";
 import { OrderService } from "app/order/order.service";
 
+
 @NgModule({
-    declarations: [InputComponent, RadioComponent, RatingComponent],
+    declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
     imports: [FormsModule, ReactiveFormsModule, CommonModule],
     exports: [InputComponent, RadioComponent, RatingComponent,
-              FormsModule, ReactiveFormsModule, CommonModule]
+              FormsModule, ReactiveFormsModule, CommonModule, SnackbarComponent]
 })
 export class SharedModule {
 

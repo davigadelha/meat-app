@@ -23,15 +23,14 @@ export class LoginComponent implements OnInit {
       password: this.fb.control('', [Validators.required]),
     })
   }
-
-  login(){
+// console.log(`Bem vindo(a), ${user.name}`),
+//  console.log(`Ocorreu um erro ao logar: ${response.error.message}`));
+  login() {
     this.loginService.login(this.loginForm.value.email,
                             this.loginForm.value.password)
-                    .subscribe(user => console.log(`Bem vindo(a), ${user.name}`),
-                               // this.notificationService.notify(`Bem vindo, ${user.name}`),
-                               response => // HttpErrorResponse
-                               console.log(`Ocorreu um erro ao logar: ${response.error.message}`));
-                               // this.notificationService.notify(response.error.message));
+                    .subscribe(user => this.notificationService.notify(`Bem vindo, ${user.name}`),
+                               response => // HttpErrorResponse                              
+                               this.notificationService.notify(response.error.message));
   }
 
 }
