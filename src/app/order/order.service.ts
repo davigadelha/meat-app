@@ -15,7 +15,7 @@ export class OrderService {
                 private http: HttpClient,
                 private loginService: LoginService) {}
 
-    itemsValue(): number{
+    itemsValue(): number {
         return this.cartService.total();
     }
 
@@ -39,7 +39,7 @@ export class OrderService {
         let headers = new HttpHeaders();
         if (this.loginService.isLoggedIn()) {
             headers = headers.set('Authorization', `Bearer ${this.loginService.user.accessToken}`);
-            console.log(headers.get('Authorization'));
+            console.log('HEADER Authorization: ' + headers.get('Authorization'));
         }
         return this.http.post<Order>(`${MEAT_API}/orders`, order, {headers: headers})
                         .map(order => order.id);

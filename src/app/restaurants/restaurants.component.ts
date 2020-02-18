@@ -66,7 +66,7 @@ export class RestaurantsComponent implements OnInit {
       .subscribe(restaurants => this.restaurants = restaurants);
   }
 
-  toggleSearch(){
+  toggleSearch() {
     this.searchBarState = this.searchBarState === 'hidden' ? 'visible' : 'hidden';
   }
 }

@@ -11,7 +11,7 @@ export const handleAuthentication = (req: Request, resp: Response) => {
         const dbUSer: User = users[user.email];
         const token = jwt.sign({sub: dbUSer.email, iss: 'meat-app'},
             apiConfig.secret);
-        return resp.json({name: dbUSer.name, email: dbUSer.email, accesToken: token});
+        return resp.json({name: dbUSer.name, email: dbUSer.email, accessToken: token});
     }else {
         resp.status(403).json({message: 'Dados inválidos.'});
     }
