@@ -1,6 +1,7 @@
+import { ApplicationErroHandler } from './app.error-handler';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
 
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import {ROUTES} from './app.routes';
@@ -49,7 +50,8 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   //{provide: LocationStrategy, useClass: HashLocationStrategy}, 
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'},
+              {provide: ErrorHandler, useClass: ApplicationErroHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

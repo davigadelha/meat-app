@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Order } from './order.model';
 
 import { MEAT_API } from 'app/app.api';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class OrderService {

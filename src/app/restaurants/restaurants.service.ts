@@ -1,5 +1,4 @@
 import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
-import { ErrorHandler } from './../app.error-handler';
 
 import { MEAT_API } from '../app.api';
 import { Restaurant } from './restaurant/restaurant.model';
@@ -12,22 +11,22 @@ import 'rxjs/add/operator/catch';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
-export class RestaurantsService{
+export class RestaurantsService {
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
-    restaurants(search?: string): Observable<Restaurant[]>{
+    restaurants(search?: string): Observable<Restaurant[]> {
         let params: HttpParams = undefined;
-        if (search){
-            params = new HttpParams().set('q', search);    
-            // params =  params.set('q', search);       
+        if (search) {
+            params = new HttpParams().set('q', search);
+            // params =  params.set('q', search);
         }
         return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, {params: params});
         //   .map(response => response.json())
         //   .catch(ErrorHandler.handleError);
     }
 
-    restaurantById(id: string): Observable<Restaurant>{
+    restaurantById(id: string): Observable<Restaurant> {
         return this.http.get<Restaurant>(`${MEAT_API}/restaurants/${id}`);
             // .map(response => response.json())
             // .catch(ErrorHandler.handleError);
